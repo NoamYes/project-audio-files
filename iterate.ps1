@@ -1,4 +1,4 @@
-Get-ChildItem "E:\Downloads\try" | 
+Get-ChildItem "..\files" | 
 Foreach-Object {
 Write-Host "hello world"
 }
