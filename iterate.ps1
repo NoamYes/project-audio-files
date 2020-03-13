@@ -34,7 +34,6 @@ Function Test-IsFileLocked {
 
 Get-ChildItem "..\files" | 
 Foreach-Object {
-Write-Host $_.FullName
 Test-IsFileLocked -PATH $_.FullName
 }
 
