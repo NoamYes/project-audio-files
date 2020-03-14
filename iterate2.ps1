@@ -22,9 +22,17 @@ function Test-FileLock {
   }
 }
 
+function presentationText($targetslide, $text) {
+	$s = $presentation.Slides[$targetslide]
+	$f0a=$s.Shapes[5].TextFrame.TextRange.Text
+	$f1a = $text
+	$test = $s.Shapes[5].TextFrame.TextRange.Replace($f0a, $f1a)
+}
+
 Get-ChildItem "C:\Users\Noam\Music\Pop" | 
 Foreach-Object {
 if ((Test-FileLock $_.FullName) -eq $True) {
-Write-Host ($_.FullName)
+#Write-Host ($_.FullName)
+presentationText("../printFile.pptx", $_.FullName)
 }
 }
