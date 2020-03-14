@@ -28,12 +28,15 @@ Function Test-IsFileLocked {
             }
         }
     }
+	return $IsLocked
 }
  
 
 
-Get-ChildItem "..\files" | 
+Get-ChildItem "C:\Users\Noam\Music\Pop" | 
 Foreach-Object {
-Test-IsFileLocked -PATH $_.FullName
+if (Test-IsFileLocked -PATH $_.FullName == $True) {
+Write-Host "locked"
+}
 }
 
