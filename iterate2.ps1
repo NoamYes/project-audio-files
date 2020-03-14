@@ -1,3 +1,5 @@
+param($pptxFile)
+
 function Test-FileLock {
   param (
     [parameter(Mandatory=$true)][string]$Path
@@ -34,6 +36,6 @@ Foreach-Object {
 if ((Test-FileLock $_.FullName) -eq $True) {
 #Write-Host ($_.FullName)
 #presentationText("../printFile.pptx", $_.FullName)
-& "C:\Users\Noam\OneDrive - Technion\Other Courses\Projects\project-audio-files\powerpoint.ps1" -filePath $_.FullName
+& "C:\Users\Noam\OneDrive - Technion\Other Courses\Projects\project-audio-files\powerpoint.ps1" -filePath $_.FullName -pptxFile $pptxFile
 }
 }
