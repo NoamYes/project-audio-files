@@ -1,3 +1,6 @@
+
+param([string]$filePath="")
+
 Add-Type -AssemblyName office
 
 $Application = New-Object -ComObject PowerPoint.Application
@@ -15,6 +18,6 @@ $presentation = $Application.Presentations.open($templatePresentation)
 $mydocument = $presentation.Slides.Item(1)
 
 	$f0a=$mydocument.Shapes[1].TextFrame.TextRange.Text
-	$f1a = "Hello world"
+	$f1a = $filePath
 	$test = $mydocument.Shapes[1].TextFrame.TextRange.Replace($f0a, $f1a)
 # $mydocument.Shapes.title.TextFrame.TextRange.Text = "test"
